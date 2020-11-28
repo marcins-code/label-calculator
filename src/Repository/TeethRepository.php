@@ -2,21 +2,21 @@
 
 namespace App\Repository;
 
-use App\Entity\Tooths;
+use App\Entity\Teeth;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method Tooths|null find($id, $lockMode = null, $lockVersion = null)
- * @method Tooths|null findOneBy(array $criteria, array $orderBy = null)
- * @method Tooths[]    findAll()
- * @method Tooths[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Teeth|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Teeth|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Teeth[]    findAll()
+ * @method Teeth[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ToothsRepository extends ServiceEntityRepository
+class TeethRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Tooths::class);
+        parent::__construct($registry, Teeth::class);
     }
 
     // /**

@@ -10,19 +10,19 @@ use Doctrine\ORM\Mapping as ORM;
  * @ApiResource()
  * @ORM\Entity(repositoryClass=ToothsRepository::class)
  */
-class Tooths
+class Teeth
 {
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private int $id;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $teethNumber;
+    private int $teethNumber;
 
     public function getId(): ?int
     {
