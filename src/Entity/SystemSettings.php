@@ -17,17 +17,22 @@ class SystemSettings
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private int $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $setting;
+    private string $setting;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $value;
+    private int $value;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private string  $description;
 
     public function getId(): ?int
     {
@@ -57,4 +62,16 @@ class SystemSettings
 
         return $this;
     }
+
+    public function getDescription(): string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): void
+    {
+        $this->description = $description;
+    }
+
+
 }
