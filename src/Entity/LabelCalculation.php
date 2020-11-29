@@ -6,6 +6,9 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiProperty;
 use ApiPlatform\Core\Annotation\ApiResource;
+use App\Controller\DataProvider\SettingsDataProvider;
+use Symfony\Component\Serializer\Annotation\Groups;
+
 
 /**
  * @ApiResource(
@@ -18,7 +21,9 @@ use ApiPlatform\Core\Annotation\ApiResource;
  *             "output"=false,
  *         },
  *     },
- *     collectionOperations={"post"}
+ *     collectionOperations={"post"},
+ *     normalizationContext={"groups"={"read"}},
+ *     denormalizationContext={"groups"={"write"}},
  * )
  */
 class LabelCalculation
@@ -26,6 +31,7 @@ class LabelCalculation
 
     /**
      * @ApiProperty(identifier=true)
+     * @Groups({"write"})
      */
     public int $length;
 
@@ -33,10 +39,18 @@ class LabelCalculation
 
     public float $next;
 
+    public $teeth;
 
-    public function getNext(): float
+
+    public function __construct(SettingsDataProvider $settingsData)
     {
-        return $this->next = $this->length * 0.22;
+        $this->settingsData = $settingsData;
     }
+
+    public function getTeeth()
+    {
+        return 40;
+    }
+
 
 }
