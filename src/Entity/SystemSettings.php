@@ -34,11 +34,6 @@ class SystemSettings
      */
     private string  $description;
 
-
-    private float $uFActor;
-
-    private float $calculatedGap;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -78,24 +73,5 @@ class SystemSettings
         $this->description = $description;
     }
 
-    public function getUFActor(): float
-    {
-        return $this->uFActor;
-    }
-
-    public function setUFActor(float $uFActor): void
-    {
-        $this->uFActor = $uFActor;
-    }
-
-    public function getCalculatedGap(): float
-    {
-        return $this->calculatedGap;
-    }
-
-    public function setCalculatedGap(float $calculatedGap): void
-    {
-        $this->calculatedGap = $calculatedGap;
-    }
 
 }
