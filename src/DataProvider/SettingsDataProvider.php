@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Controller\DataProvider;
+namespace App\DataProvider;
 
 
 use App\Entity\Teeth;
