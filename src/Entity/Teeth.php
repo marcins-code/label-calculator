@@ -24,6 +24,11 @@ class Teeth
      */
     private $teeth;
 
+
+    private float $uFActor = 0;
+
+    private float $calculatedGap = 0;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -39,5 +44,26 @@ class Teeth
         $this->teeth = $teeth;
 
         return $this;
+    }
+
+
+    public function getUFActor(): float
+    {
+        return $this->uFActor;
+    }
+
+    public function setUFActor(float $uFActor): void
+    {
+        $this->uFActor = $uFActor;
+    }
+
+    public function getCalculatedGap(): float
+    {
+        return $this->calculatedGap;
+    }
+
+    public function setCalculatedGap(float $calculatedGap): void
+    {
+        $this->calculatedGap = $calculatedGap;
     }
 }
