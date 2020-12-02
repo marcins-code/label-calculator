@@ -5,27 +5,41 @@ namespace App\Tests\DataProvider;
 
 
 use App\DataProvider\DataProvider;
-use App\Service\Calculation;
-use PHPUnit\Framework\TestCase;
 
-class DataProviderTest extends TestCase
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+
+
+class DataProviderTest extends KernelTestCase
 {
 
-    public function testShouldReturnOnlyOneValueFromArray()
-        {
-            //Given
-            $array = [
-                ['minWidth',20],
-                ['maxWidth',100],
-                ['minHeight',70],
-                ['maxHeight',150],
-            ];
+    private EntityManagerInterface $entityManager;
 
-            $dataProvider = new DataProvider();
+    protected function setUp(): void
+    {
+        $kernel = self::bootKernel();
+        $this->entityManager = $kernel->getContainer()->get('doctrine')->getManager();
+    }
 
-            $dataProvider->getSettingByShortName('maxWidth');
 
-            $this->assertSame( ['minWidth',20],  $dataProvider->getSettingByShortName('maxWidth'));
-        }
+    public function testNumberOfRollersInDatabase()
+    {
+
+        $rollers = new DataProvider($this->entityManager);
+        $cont = $rollers->getAllRollers();
+        $this->assertSame(25, count($cont));
+
+    }
+
+    public function testSingleSettingValue()
+    {
+        $setting = new DataProvider($this->entityManager);
+        $singleSettingValue = $setting->getSettingByShortName('circuitFactor');
+        $singleSettingValue2 = $setting->getSettingByShortName('minLabelWidth');
+
+        $this->assertSame(3175, $singleSettingValue);
+        $this->assertSame(15, $singleSettingValue2);
+    }
+
 
 }

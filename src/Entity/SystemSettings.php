@@ -22,7 +22,7 @@ class SystemSettings
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private string $setting;
+    private string $shortName;
 
     /**
      * @ORM\Column(type="integer")
@@ -39,14 +39,14 @@ class SystemSettings
         return $this->id;
     }
 
-    public function getSetting(): ?string
+    public function getShortName(): ?string
     {
-        return $this->setting;
+        return $this->shortName;
     }
 
-    public function setSetting(string $setting): self
+    public function setShortName(string $shortName): self
     {
-        $this->setting = $setting;
+        $this->shortName = $shortName;
 
         return $this;
     }

@@ -6,9 +6,8 @@ namespace App\DataProvider;
 
 use App\Entity\Rollers;
 use App\Entity\SystemSettings;
-use App\Tests\DataProvider\RollersDataProviderTest;
 use Doctrine\ORM\EntityManagerInterface;
-use phpDocumentor\Reflection\Types\This;
+
 
 class DataProvider
 {
@@ -36,7 +35,11 @@ class DataProvider
 
     public function getSettingByShortName(string $shortName)
     {
+       $systemSetting =   array_filter($this->getAllSystemSettings(),function ($v) use ($shortName) {
+            return $v->getShortName() == $shortName;
+        });
 
+       return array_shift($systemSetting)->getValue();
     }
 
 
