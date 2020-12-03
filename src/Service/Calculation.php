@@ -81,5 +81,9 @@ class Calculation
 
     }
 
+    public function getBestSingleRollerCircuit($teethNo)
+    {
+        return $this->circuitFactor*$teethNo;
+    }
 
 }

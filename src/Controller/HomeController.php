@@ -33,17 +33,10 @@ class HomeController extends AbstractController
 
             $rollers = $calculation->calculateAllDataFofAllRollers($json->length);
 
-//            dd($rollers);
             $rollers = $calculation->getOnlyRollersWithCorrectLeghtGaps($rollers);
 
             $correctRoller = $calculation->getBestSingleRoller($rollers);
-//            dd($correctRoller);
 
-//            $object = array_reduce($rollers, function($a, $b){
-//                return $a->getLengthGap() < $b->getLengthGap() ? $a : $b;
-//            }, array_shift($rollers));
-
-//            dd($correctRoller);
 
         } else {
             $rollers = 'dupa';
@@ -55,6 +48,7 @@ class HomeController extends AbstractController
             'chosenRollerTeethNo'=>$correctRoller->getTeethNo(),
             'chosenRollerUFactor'=>$correctRoller->getUFactor(),
             'chosenRollerCalculatedGap'=>$correctRoller->getLengthGap(),
+            'chosenRollerCircuit'=>$calculation->getBestSingleRollerCircuit($correctRoller->getTeethNo()),
             ], 'json');
 
 
