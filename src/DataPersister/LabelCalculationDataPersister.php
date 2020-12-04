@@ -8,7 +8,7 @@ use ApiPlatform\Core\DataPersister\ContextAwareDataPersisterInterface;
 use App\Entity\LabelCalculation;
 use App\Service\Calculation;
 
-class CalculationDataPersister implements ContextAwareDataPersisterInterface
+class LabelCalculationDataPersister implements ContextAwareDataPersisterInterface
 {
 
 
