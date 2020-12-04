@@ -33,12 +33,12 @@ class HomeController extends AbstractController
 
             $rollers = $calculation->calculateAllDataFofAllRollers($json->length);
 
-<<<<<<< HEAD
+
             $rollers = $calculation->getOnlyRollersWithCorrectLeghtGaps($rollers);
-=======
+
 
             $rollers = $calculation->getOnlyRollersWithCorrectLengthGaps($rollers);
->>>>>>> tests
+
 
             $correctRoller = $calculation->getBestSingleRoller($rollers);
 
