@@ -35,11 +35,11 @@ class DataProvider
 
     public function getSettingByShortName(string $shortName)
     {
-       $systemSetting =   array_filter($this->getAllSystemSettings(),function ($v) use ($shortName) {
+        $systemSetting =   array_filter($this->getAllSystemSettings(),function ($v) use ($shortName) {
             return $v->getShortName() == $shortName;
         });
 
-       return array_shift($systemSetting)->getValue();
+        return array_shift($systemSetting)->getValue();
     }
 
 

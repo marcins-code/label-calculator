@@ -33,7 +33,12 @@ class HomeController extends AbstractController
 
             $rollers = $calculation->calculateAllDataFofAllRollers($json->length);
 
+<<<<<<< HEAD
             $rollers = $calculation->getOnlyRollersWithCorrectLeghtGaps($rollers);
+=======
+
+            $rollers = $calculation->getOnlyRollersWithCorrectLengthGaps($rollers);
+>>>>>>> tests
 
             $correctRoller = $calculation->getBestSingleRoller($rollers);
 
@@ -64,7 +69,7 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route(path="/", methods={"GET"})
+     * @Route(path="/home", methods={"GET"})
      * @return Response
      */
 

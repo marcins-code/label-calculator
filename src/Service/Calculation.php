@@ -63,11 +63,11 @@ class Calculation
         return $rollers;
     }
 
-    public function getOnlyRollersWithCorrectLeghtGaps($rollers)
+    public function getOnlyRollersWithCorrectLengthGaps($rollers)
     {
 
         return array_values(array_filter($rollers, function ($v) {
-            return $v->getLengthGap() >= 3;
+            return $v->getLengthGap() >= $this->minGapOnLength;
         }));
 
 
