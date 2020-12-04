@@ -38,7 +38,7 @@ class LabelCalculation
 
 
     /**
-     * @Groups({"stats:write"})
+     * @Groups({"stats:write", "stats:read"})
      * @Assert\NotNull(message="Pole nie może być puste")
      * @Assert\NotBlank(message="Pole nie może być puste33")
      * @LengthInput()
@@ -46,7 +46,7 @@ class LabelCalculation
     private int $length;
 
     /**
-     * @Groups({"stats:write"})
+     * @Groups({"stats:write", "stats:read"})
      * @Assert\NotNull(message="Pole nie może być puste")
      * @Assert\NotBlank(message="Pole nie może być puste")
      * @WidthInput()
