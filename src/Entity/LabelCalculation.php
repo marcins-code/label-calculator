@@ -8,6 +8,7 @@ use ApiPlatform\Core\Annotation\ApiProperty;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
+use App\Validator\LengthInput;
 
 /**
  * @ApiResource(
@@ -39,7 +40,7 @@ class LabelCalculation
      * @Groups({"stats:write"})
      * @Assert\NotNull(message="Pole nie może być puste")
      * @Assert\NotBlank(message="Pole nie może być puste33")
-     * @Assert\Range(min="15", max="609", maxMessage="Wartość nie może być większa niż 609mm", minMessage="Wartość nie może być mniejsza niż 15mm ")
+     * @LengthInput()
      */
     private int $length;
 
