@@ -66,6 +66,27 @@ class LabelCalculation
     /**
      * @Groups({"stats:read"})
      */
+    public int $qtyOfLabelsOnFormatOnWidth;
+
+    /**
+     * @Groups({"stats:read"})
+     */
+    public int $qtyOfLabelsOnFormatOnLength;
+
+    /**
+     * @Groups({"stats:read"})
+     */
+    public float $qtyOfLabelsOnFormatOnLengthPunch;
+
+
+    /**
+     * @Groups({"stats:read"})
+     */
+    public int $totalNumberOfLabels;
+
+    /**
+     * @Groups({"stats:read"})
+     */
     public function getChosenRollerID(): int
     {
         return $chosenRollerID = $this->chosenRoller->getID();
@@ -119,4 +140,6 @@ class LabelCalculation
         $this->width = $width;
     }
 
+
+    //TODO to hermetize all properties
 }
