@@ -34,11 +34,17 @@ class Rollers
 
     private  ?float $lengthGap;
 
+    /**
+     * @Groups({"stats:read"})
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * @Groups({"stats:read"})
+     */
     public function getTeethNo(): ?int
     {
         return $this->teethNo;
@@ -52,6 +58,9 @@ class Rollers
     }
 
 
+    /**
+     * @Groups({"stats:read"})
+     */
     public function getUFactor(): ?int
     {
         return $this->uFactor;
@@ -62,12 +71,15 @@ class Rollers
         $this->uFactor = $uFactor;
     }
 
+    /**
+     * @Groups({"stats:read"})
+     */
       public function getLengthGap(): ?float
     {
         return $this->lengthGap;
     }
 
-    public function setLengthGap(float $lengthGap): void
+     public function setLengthGap(float $lengthGap): void
     {
         $this->lengthGap = $lengthGap;
     }
