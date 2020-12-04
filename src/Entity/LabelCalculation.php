@@ -19,7 +19,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *             "output"=false,
  *         },
  *     },
- *     collectionOperations={"get", "post"},
+ *     collectionOperations={"post"},
  *
  *     normalizationContext={"groups"={"stats:read"}},
  *     denormalizationContext={"groups"={"stats:write"}},
@@ -32,12 +32,8 @@ class LabelCalculation
      * @ApiProperty(identifier=true)
      * @Groups({"stats:read"})
      */
-    public string $data;
+    public string $identifier;
 
-    /**
-     * @Groups({"stats:read"})
-     */
-    public int $visitors = 10;
 
     /**
      * @Groups({"stats:write"})
