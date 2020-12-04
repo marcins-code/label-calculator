@@ -21,7 +21,7 @@ use App\Validator\LengthInput;
  *             "output"=false,
  *         },
  *     },
- *     collectionOperations={"post"},
+ *     collectionOperations={"post" = {"status"=200}},
  *
  *     normalizationContext={"groups"={"stats:read"}},
  *     denormalizationContext={"groups"={"stats:write"}},
