@@ -6,6 +6,7 @@ namespace App\DataPersister;
 
 use ApiPlatform\Core\DataPersister\ContextAwareDataPersisterInterface;
 use App\Entity\LabelCalculation;
+use App\Entity\Rollers;
 use App\Service\Calculation;
 
 class LabelCalculationDataPersister implements ContextAwareDataPersisterInterface
@@ -28,8 +29,7 @@ class LabelCalculationDataPersister implements ContextAwareDataPersisterInterfac
     {
         if ($context['collection_operation_name'] === 'post') {
 
-            $data->data = $data->getLength();
-            $data->visitors = $data->getWidth();
+            $data->identifier = $data->getLength();
             $data->rollers = $this->calculation->calculateAllDataFofAllRollers($data->getLength());
             $data->rollers = $this->calculation->getOnlyRollersWithCorrectLengthGaps($data->rollers);
             $data->chosenRoller = $this->calculation->getBestSingleRoller($data->rollers);
