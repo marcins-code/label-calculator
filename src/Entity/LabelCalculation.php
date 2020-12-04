@@ -6,6 +6,7 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiProperty;
 use ApiPlatform\Core\Annotation\ApiResource;
+use App\Validator\WidthInput;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 use App\Validator\LengthInput;
@@ -46,6 +47,9 @@ class LabelCalculation
 
     /**
      * @Groups({"stats:write"})
+     * @Assert\NotNull(message="Pole nie może być puste")
+     * @Assert\NotBlank(message="Pole nie może być puste")
+     * @WidthInput()
      */
     private int $width;
 
